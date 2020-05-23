@@ -13,7 +13,7 @@ const repositories = [];
 function existsId(request, response, next) {
   const {id} = request.params;
 
-  if(!isUuid(id) || (repositories.findIndex((repo) => repo.id === id) < 0)) {
+  if((repositories.findIndex((repo) => repo.id === id) < 0)) {
     return response.status(400).json('Id does not exist');
   }
 
